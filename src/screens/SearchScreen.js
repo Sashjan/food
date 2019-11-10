@@ -17,7 +17,7 @@ const SearchScreen = () => {
       //to change it down to the child SearchBar element; then we need to show up these 
       //to properties (term and onTermChange) inside of our props object -> see SearchBar
       onTermSubmit={() => searchApi(term)}
-    /><Text>The term is {business.term}</Text>
+    />
     { errorMessage ? <Text>{errorMessage}</Text> : null }
     <Text>We have found {business.length} results</Text> 
   </View>  
