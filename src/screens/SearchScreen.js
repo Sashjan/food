@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
-import useBusinesses from '../hooks/useBuisnesses';
+import useRestaurants from '../hooks/useRestaurants';
 import ResultsList from '../components/ResultsList';
 
 const SearchScreen = () => {
   const[term, setTerm] = useState(''); //piece of state, managed by SearchScreen;
-  const[searchApi, business, errorMessage] = useBusinesses();
+  const[searchApi, restaurants, errorMessage] = useRestaurants();
+
   
 //The block of code below is called JSX block.
   return <View>
@@ -20,7 +21,7 @@ const SearchScreen = () => {
       onTermSubmit={() => searchApi(term)}
     />
     { errorMessage ? <Text>{errorMessage}</Text> : null }
-    <Text>We have found {business.length} results</Text>
+    <Text>We have found {restaurants.length} results</Text>
     <ResultsList title="Cost Effective"/>
     <ResultsList title="Bit Pricier"/>
     <ResultsList title="Big Spender"/>

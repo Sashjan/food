@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import useBuisnesses from '../hooks/useBuisnesses';
+import useRestaurants from '../hooks/useRestaurants';
 
 const ResultsList = ({title}) => {
 
