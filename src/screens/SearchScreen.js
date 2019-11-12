@@ -8,6 +8,11 @@ const SearchScreen = () => {
   const[term, setTerm] = useState(''); //piece of state, managed by SearchScreen;
   const[searchApi, restaurants, errorMessage] = useRestaurants();
 
+  const filterRestaurantsByPrice = (price) => {
+    //price === $ || $$ || $$$
+    return restaurants.filter((restaurant) => {
+      return restaurant.price === price; });
+  };
   
 //The block of code below is called JSX block.
   return <View>
