@@ -7,11 +7,12 @@ import ResultsList from '../components/ResultsList';
 const SearchScreen = () => {
   const[term, setTerm] = useState(''); //piece of state, managed by SearchScreen;
   const[searchApi, restaurants, errorMessage] = useRestaurants();
-
+  
   const filterRestaurantsByPrice = (price) => {
     //price === $ || $$ || $$$
     return restaurants.filter((restaurant) => {
-      return restaurant.price === price; });
+      return restaurant.price === price;
+    });
   };
   
 //The block of code below is called JSX block.
@@ -27,9 +28,9 @@ const SearchScreen = () => {
     />
     { errorMessage ? <Text>{errorMessage}</Text> : null }
     <Text>We have found {restaurants.length} results</Text>
-    <ResultsList title="Cost Effective"/>
-    <ResultsList title="Bit Pricier"/>
-    <ResultsList title="Big Spender"/>
+    <ResultsList results={filterRestaurantsByPrice('$')} title="Cost Effective"/>
+    <ResultsList results={filterRestaurantsByPrice('$$')} title="Bit Pricier"/>
+    <ResultsList results={filterRestaurantsByPrice('$$$')} title="Big Spender"/>
   </View>  
 };
 
