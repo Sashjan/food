@@ -27,7 +27,7 @@ const SearchBar = ({term, onTermChange, onTermSubmit}) => { //destructuring prop
 const styles = StyleSheet.create({
   backgroundStyle: {
     backgroundColor: '#F0EEEE',
-    height: 50,
+    height: 45,
     borderRadius: 5,
     marginTop: 10,
     marginHorizontal: 15,
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     fontSize: 18 //increase font size in the Input Field
   },
   iconStyle: {
-    fontSize: 35,
+    fontSize: 30,
     alignSelf: 'center',
     marginHorizontal: 10
   }
