@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import useRestaurants from '../hooks/useRestaurants';
 import ResultsList from '../components/ResultsList';
@@ -16,7 +16,8 @@ const SearchScreen = () => {
   };
   
 //The block of code below is called JSX block.
-  return <View>
+  return <View style={{flex: 1}}>{/*or we can use just empty <>less than grater than 
+    element</> without needless of using the flex property*/}
     <SearchBar 
       term={term} 
       onTermChange={setTerm}
@@ -28,9 +29,11 @@ const SearchScreen = () => {
     />
     { errorMessage ? <Text>{errorMessage}</Text> : null }
     <Text>We have found {restaurants.length} results</Text>
+    <ScrollView>
     <ResultsList results={filterRestaurantsByPrice('$')} title="Cost Effective"/>
     <ResultsList results={filterRestaurantsByPrice('$$')} title="Bit Pricier"/>
     <ResultsList results={filterRestaurantsByPrice('$$$')} title="Big Spender"/>
+    </ScrollView>
   </View>  
 };
 
